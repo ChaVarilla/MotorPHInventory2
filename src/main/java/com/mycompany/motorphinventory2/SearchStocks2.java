@@ -59,25 +59,26 @@ public class SearchStocks2 {
         System.out.print("\nEnter Engine Number to Search: ");
         String engineNum = scan.nextLine();
         
-        for(Map.Entry<String, SearchStocks2> e: entries){
-            if(engineNum.equals(e.getKey())){
-                System.out.print("\nDate Entered: ");
-                System.out.println(e.getValue().date);
-                System.out.print("Stock Label: ");
-                System.out.println(e.getValue().label);
-                System.out.print("Stock's Brand: ");
-                System.out.println(e.getValue().brand);
-                System.out.print("Engine Number: ");
-                System.out.println(e.getValue().number);
-                System.out.print("Status: ");
-                System.out.println(e.getValue().status);
-                break;
-            }
-            else{
-                System.out.println("Stock is not listed.");
-                break;
+        if(stockHashMap.containsKey(engineNum)){
+            for(Map.Entry<String, SearchStocks2> e: entries){
+                if(engineNum.equals(e.getKey())){
+                    System.out.print("\nDate Entered: ");
+                    System.out.println(e.getValue().date);
+                    System.out.print("Stock Label: ");
+                    System.out.println(e.getValue().label);
+                    System.out.print("Stock's Brand: ");
+                    System.out.println(e.getValue().brand);
+                    System.out.print("Engine Number: ");
+                    System.out.println(e.getValue().number);
+                    System.out.print("Status: ");
+                    System.out.println(e.getValue().status);
+                    break;
+                }
+                
             }
         }
-        
+        else{
+                System.out.println("Stock is not listed.");
+        }       
     }
 }
